@@ -83,7 +83,7 @@ on enable-low-power
     write /sys/devices/system/cpu/cpu4/online 1
     write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor "interactive"
     write /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay 39000
-    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load 90
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load 85
     write /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate 50000
     write /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq 806400
     write /sys/devices/system/cpu/cpu4/cpufreq/interactive/io_is_busy 0
@@ -151,7 +151,13 @@ on enable-low-power
 
     write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
     write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 53059
+    
+    # Set Swappiness
+    write /proc/sys/vm/swappiness 0
 
+    # Enable Laptop Mode
+    write /proc/sys/vm/laptop_mode 1
+    
     # Set idle GPU to 240 Mhz
     write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 4
 
