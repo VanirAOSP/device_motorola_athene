@@ -148,9 +148,6 @@ on enable-low-power
     write /sys/module/process_reclaim/parameters/per_swap_size 1024
     write /sys/module/process_reclaim/parameters/pressure_max 70
     write /sys/module/process_reclaim/parameters/swap_opt_eff 30
-
-    write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
-    write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 53059
     
     # Set Swappiness
     write /proc/sys/vm/swappiness 0
